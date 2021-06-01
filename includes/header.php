@@ -1,22 +1,6 @@
 <?php
 
-
-if(isset($sub_foler)) {
-
-    $total = '';
-
-    for($i = 0; $i < $sub_foler; $i++) {
-        $total .= '.';
-    }
-
-    require_once $total . './config/config.php';
-
-} else {
-
-    require_once './config/config.php';
-    
-}
-
+require_once $total . '/config/config.php';
 
 if(!isset($title)) {
 	$title = 'Set a title';
