@@ -1,6 +1,22 @@
 <?php
 
-require_once './config/config.php';
+
+if(isset($sub_foler)) {
+
+    $total = '';
+
+    for($i = 0; $i < $sub_foler; $i++) {
+        $total .= '.';
+    }
+
+    require_once $total . './config/config.php';
+
+} else {
+
+    require_once './config/config.php';
+    
+}
+
 
 if(!isset($title)) {
 	$title = 'Set a title';
@@ -17,20 +33,26 @@ if(!isset($title)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title><?= $title ?></title>
 	<script type="text/javascript" src="<?= ASSET . '/scripts/main.js'; ?>"></script>
-    <link rel="stylesheet" href="<?= ASSET . '/styles/main.css'; ?>">
     <?php
+
     if(isset($jsLinker)) {
     foreach ($jsLinker as $link) {
         $js = '<script type="text/javascript" src="' . ASSET . '/scripts/' . $link . '"></script>';
         echo $js;
         }
     }
+
+    ?>
+    <link rel="stylesheet" href="<?= ASSET . '/styles/main.min.css'; ?>">
+    <?php
+
     if(isset($cssLinker)) {
         foreach ($cssLinker as $link) {
             $css = '<link rel="stylesheet" href="' . ASSET . '/styles/' . $link . '">';
             echo $css;
         }
     }
+
     ?>
 </head>
 <body>
