@@ -19,8 +19,8 @@ if(!isset($title)) {
 	<script type="text/javascript" src="<?= ASSET . '/scripts/main.js'; ?>"></script>
     <?php
 
-    if(isset($jsLinker)) {
-    foreach ($jsLinker as $link) {
+    if(isset($assets)) {
+    foreach ($assets[1] as $link) {
         $js = '<script type="text/javascript" src="' . ASSET . '/scripts/' . $link . '"></script>';
         echo $js;
         }
@@ -30,8 +30,8 @@ if(!isset($title)) {
     <link rel="stylesheet" href="<?= ASSET . '/styles/main.min.css'; ?>">
     <?php
 
-    if(isset($cssLinker)) {
-        foreach ($cssLinker as $link) {
+    if(isset($assets)) {
+        foreach ($assets[0] as $link) {
             $css = '<link rel="stylesheet" href="' . ASSET . '/styles/' . $link . '">';
             echo $css;
         }
